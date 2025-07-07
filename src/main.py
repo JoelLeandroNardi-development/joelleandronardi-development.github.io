@@ -1,26 +1,37 @@
 import flet as ft
-
+from views import home, projects, experience, education, courses, interests, contact
 
 def main(page: ft.Page):
-    counter = ft.Text("0", size=50, data=0)
+    # Theme state and toggle function
+    is_dark = True
+    def toggle_theme(e=None):
+        nonlocal is_dark
+        is_dark = not is_dark
+        page.theme_mode = ft.ThemeMode.DARK if is_dark else ft.ThemeMode.LIGHT
+        page.update()
 
-    def increment_click(e):
-        counter.data += 1
-        counter.value = str(counter.data)
-        counter.update()
+    def route_change(e):
+        page.views.clear()
+        route = page.route
 
-    page.floating_action_button = ft.FloatingActionButton(
-        icon=ft.Icons.ADD, on_click=increment_click
-    )
-    page.add(
-        ft.SafeArea(
-            ft.Container(
-                counter,
-                alignment=ft.alignment.center,
-            ),
-            expand=True,
-        )
-    )
+        # Load corresponding view
+        if route == "/":
+            home.view(page, toggle_theme)
+        elif route == "/projects":
+            projects.view(page, toggle_theme)
+        elif route == "/experience":
+            experience.view(page, toggle_theme)
+        elif route == "/education":
+            education.view(page, toggle_theme)
+        elif route == "/courses":
+            courses.view(page, toggle_theme)
+        elif route == "/interests":
+            interests.view(page, toggle_theme)
+        elif route == "/contact":
+            contact.view(page, toggle_theme)
+        page.update()
 
+    page.on_route_change = route_change
+    page.go(page.route or "/")  # fallback to home if no route
 
-ft.app(main)
+ft.app(target=main, view=ft.WEB_BROWSER, assets_dir="src/assets")
