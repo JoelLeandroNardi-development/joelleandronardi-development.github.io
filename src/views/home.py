@@ -1,8 +1,8 @@
 import flet as ft
+from components.nav import get_appbar
 
-def view(page: ft.Page, toggle_theme=None):
+def view(page: ft.Page, toggle_theme=None, avatar=None):
 
-    # Your existing click handlers (add more if you want for nav links)
     def on_email_click(e):
         page.launch_url("mailto:joelleandronardi@gmail.com")
 
@@ -12,44 +12,15 @@ def view(page: ft.Page, toggle_theme=None):
     def on_github_click(e):
         page.launch_url("https://github.com/JoelLeandroNardi-development")
 
-    # Navigation click handlers
-    def on_nav_click(e):
-        # You can expand this to navigate or scroll to sections, or open URLs
-        print(f"Clicked {e.control.data}")
-
-    # Header navigation bar
-    nav_links = ["Courses", "Education", "Projects", "Experience", "Interests"]
-
-    header_nav = ft.Container(
-        content=ft.Row(
-            controls=[
-                ft.TextButton(
-                    text=link,
-                    data=link,
-                    on_click=on_nav_click,
-                    style=ft.ButtonStyle(
-                        text_style=ft.TextStyle(color=ft.Colors.AMBER)
-                    )
-                )
-                for link in nav_links
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-            spacing=24
-        ),
-        padding=ft.Padding(10, 10, 10, 10),
-        bgcolor=ft.Colors.GREY_900,
-    )
-
-    avatar = ft.Image(
-        src="assets/avatar.png",
-        width=180,
-        height=180,
-        border_radius=90,
+    appbar = get_appbar(
+        title="Joel Leandro Nardi",
+        page=page,
+        toggle_theme=toggle_theme
     )
 
     name_section = ft.Column(
         controls=[
-            ft.Text("Hi, I am", size=30, weight=ft.FontWeight.W_600),
+            ft.Text("Hey there, I'm", size=30, weight=ft.FontWeight.W_600),
             ft.Text("Joel Leandro Nardi", size=40, weight=ft.FontWeight.BOLD, color=ft.Colors.AMBER),
             ft.Container(
                 content=ft.Text("Full Stack Developer", size=16, weight=ft.FontWeight.W_500),
@@ -64,22 +35,53 @@ def view(page: ft.Page, toggle_theme=None):
                 opacity=0.8,
             ),
             ft.Row([
-                ft.ElevatedButton("Quick Mail", on_click=on_email_click, bgcolor=ft.Colors.BLUE_400),
-                ft.ElevatedButton("LinkedIn", on_click=on_linkedin_click, bgcolor=ft.Colors.BLUE_300),
-                ft.ElevatedButton("GitHub", on_click=on_github_click, bgcolor=ft.Colors.GREY_900),
-            ], spacing=10),
+                ft.ElevatedButton(
+                    content=ft.Row([
+                        ft.Icon(name=ft.Icons.EMAIL, color=ft.Colors.WHITE),
+                        ft.Text("Email", color=ft.Colors.WHITE),
+                    ], spacing=8),
+                    bgcolor=ft.Colors.BLUE_400,
+                    on_click=on_email_click
+                ),
+                ft.ElevatedButton(
+                    content=ft.Row([
+                        ft.Icon(name=ft.Icons.WORK, color=ft.Colors.WHITE),
+                        ft.Text("LinkedIn", color=ft.Colors.WHITE),
+                    ], spacing=8),
+                    bgcolor=ft.Colors.BLUE_300,
+                    on_click=on_linkedin_click
+                ),
+                ft.ElevatedButton(
+                    content=ft.Row([
+                        ft.Icon(name=ft.Icons.CODE, color=ft.Colors.WHITE),
+                        ft.Text("GitHub", color=ft.Colors.WHITE),
+                    ], spacing=8),
+                    bgcolor=ft.Colors.GREY_900,
+                    on_click=on_github_click
+                )
+            ], spacing=10)
         ],
         spacing=12,
         expand=2
     )
 
+    # --- Responsive Header Layout ---
     header = ft.ResponsiveRow(
         controls=[
             ft.Container(content=name_section, padding=20, col={"xs": 12, "md": 7}),
-            ft.Container(content=avatar, alignment=ft.alignment.center, padding=20, col={"xs": 12, "md": 5}),
+            ft.Container(
+                content=ft.Column(
+                    controls=[avatar],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                ),
+                padding=20,
+                col={"xs": 12, "md": 5}
+            ),
         ]
     )
 
+    # --- Skill Cards ---
     def skill_card(title, items):
         return ft.Container(
             content=ft.Column([
@@ -99,22 +101,22 @@ def view(page: ft.Page, toggle_theme=None):
         )
 
     skills_grid = ft.ResponsiveRow([
-        skill_card("Languages", ["Python", "JavaScript", "Go", "Java"]),
-        skill_card("Databases & Cloud", ["PostgreSQL", "MongoDB", "Firebase", "AWS"]),
-        skill_card("Frameworks", ["React", "Next.js", "Express", "Flutter"]),
+        skill_card("Languages", ["C#", "Python", "JavaScript", "TypeScript", "YAML"]),
+        skill_card("Databases & Cloud", ["SQL Server", "MongoDB", "PostgreSQL", "AWS"]),
+        skill_card("Frameworks", [".NET", "React", "Vue", "Flutter"]),
         skill_card("Libraries", ["Redux", "Tailwind", "Axios"]),
-        skill_card("CI/CD", ["Docker", "GitHub Actions", "Vercel"]),
+        skill_card("CI/CD", ["Docker", "GitHub Actions", "Terraform"]),
         skill_card("UI", ["HTML", "CSS", "Figma"]),
     ], spacing=16, run_spacing=16)
 
+    # --- Final Page Layout ---
     page.views.clear()
     page.views.append(
         ft.View(
-            "/",
+            route="/",
             controls=[
                 ft.Column(
-                    [
-                        header_nav,   # <--- add header nav here
+                    controls=[
                         header,
                         ft.Divider(),
                         ft.Text("Skills", size=28, weight="bold", color=ft.Colors.AMBER),
@@ -130,6 +132,7 @@ def view(page: ft.Page, toggle_theme=None):
                 )
             ],
             scroll=ft.ScrollMode.AUTO,
+            appbar=appbar,
         )
     )
     page.update()

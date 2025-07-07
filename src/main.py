@@ -3,6 +3,12 @@ from views import home, projects, experience, education, courses, interests, con
 
 def main(page: ft.Page):
     # Theme state and toggle function
+    avatar = ft.Image(
+            src="avatar.png",  # No "assets/" needed because of assets_dir
+            width=180,
+            height=180,
+            border_radius=90,
+        )
     is_dark = True
     def toggle_theme(e=None):
         nonlocal is_dark
@@ -16,7 +22,7 @@ def main(page: ft.Page):
 
         # Load corresponding view
         if route == "/":
-            home.view(page, toggle_theme)
+            home.view(page, toggle_theme, avatar)
         elif route == "/projects":
             projects.view(page, toggle_theme)
         elif route == "/experience":
@@ -34,4 +40,4 @@ def main(page: ft.Page):
     page.on_route_change = route_change
     page.go(page.route or "/")  # fallback to home if no route
 
-ft.app(target=main, view=ft.WEB_BROWSER, assets_dir="src/assets")
+ft.app(target=main, view=ft.WEB_BROWSER, assets_dir="assets")
