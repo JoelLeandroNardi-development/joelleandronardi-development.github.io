@@ -2,13 +2,11 @@ import flet as ft
 
 def get_appbar(title: str, page: ft.Page, on_back=None, toggle_theme=None) -> ft.AppBar:
     nav_links = ["education", "projects", "experience", "interests"]
-
     leading_controls = []
     if on_back:
         leading_controls.append(
             ft.IconButton(icon=ft.Icons.ARROW_BACK, on_click=on_back)
         )
-
     return ft.AppBar(
         leading=ft.Row(
             controls=leading_controls,

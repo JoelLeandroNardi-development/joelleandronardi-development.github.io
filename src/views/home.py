@@ -2,7 +2,6 @@ import flet as ft
 from components.nav import get_appbar
 
 def view(page: ft.Page, toggle_theme=None, avatar=None):
-
     def on_email_click(e):
         page.launch_url("mailto:joelleandronardi@gmail.com")
 
@@ -82,7 +81,6 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
         expand=2
     )
 
-    # --- Responsive Header Layout ---
     header = ft.ResponsiveRow(
         controls=[
             ft.Container(content=name_section, padding=20, col={"xs": 12, "md": 7}),
@@ -98,7 +96,6 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
         ]
     )
 
-    # --- Skill Cards ---
     def skill_card(title, items):
         return ft.Container(
             content=ft.Column([
@@ -126,7 +123,6 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
         skill_card("UI", ["HTML", "CSS", "Figma"]),
     ], spacing=16, run_spacing=16)
 
-    # --- Final Page Layout ---
     page.views.clear()
     page.views.append(
         ft.View(
