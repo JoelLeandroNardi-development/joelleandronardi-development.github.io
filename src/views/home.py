@@ -43,12 +43,11 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
                 ),
             ]),
             ft.Text(
-                "I am an experienced developer building fast, secure, and scalable full-stack web apps.\n"
-                "I also have been working as Technical Lead and Agile Delivery Manager.\n"
-                "I enjoy solving complex problems and designing user-friendly systems.\n"
+                "Experienced developer building fast, secure, and scalable full-stack web apps.\n"
+                "Years of Technical Lead and Agile Delivery Manager expertise.\n"
                 "Information Systems Engineer, graduated from UTN Facultad Regional Rosario (Argentina).\n"
                 "Former exchange student and researcher in TU Ilmenau (Germany).\n"
-                "Currently living in Spain.",
+                "Currently residing in Spain.",
                 size=15,
                 opacity=0.8,
             ),
