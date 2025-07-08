@@ -2,22 +2,67 @@ import flet as ft
 from components.nav import get_appbar
 from data.education_data import university_data, languages_data, courses_data
 
-def view(page: ft.Page, toggle_theme, flags_images, learning_images):
+def view(page: ft.Page, toggle_theme, flags_images, learning_images, city_images):
     university_cards = [
         ft.Container(
             content=ft.Card(
                 content=ft.Container(
-                    content=ft.Column([
-                        ft.Text(u["title"], size=18, weight="bold"),
-                        ft.Text(u["details"]),
-                        ft.Text(u["description"]),
-                    ], spacing=5),
-                    padding=20,
+                    content=ft.Stack([
+                        ft.Image(
+                            src=city_images[u["city"].lower()].src,
+                            fit=ft.ImageFit.COVER,
+                            expand=True,
+                            width=float("inf"),
+                            height=float("inf"),
+                        ),
+                        ft.Container(
+                            gradient=ft.LinearGradient(
+                                begin=ft.alignment.center_right,
+                                end=ft.alignment.center_left,
+                                colors=[
+                                    ft.Colors.with_opacity(0.4, ft.Colors.BLACK),
+                                    ft.Colors.with_opacity(0.85, ft.Colors.BLACK)
+                                ],
+                            ),
+                            expand=True,
+                        ),
+                        ft.Container(
+                            content=ft.Column([
+                                ft.Text(
+                                    u["title"],
+                                    size=18,
+                                    weight="bold",
+                                    color=ft.Colors.WHITE,
+                                    max_lines=1,
+                                    overflow=ft.TextOverflow.ELLIPSIS
+                                ),
+                                ft.Text(
+                                    u["details"],
+                                    color=ft.Colors.WHITE70,
+                                    max_lines=2,
+                                    overflow=ft.TextOverflow.ELLIPSIS
+                                ),
+                                ft.Text(
+                                    u["description"],
+                                    color=ft.Colors.WHITE60,
+                                    max_lines=3,
+                                    overflow=ft.TextOverflow.ELLIPSIS
+                                ),
+                            ], spacing=5),
+                            padding=20,
+                            alignment=ft.alignment.top_left,
+                            expand=True,
+                        ),
+                    ]),
+                    height=180,
+                    width=float("inf"),
+                    clip_behavior=ft.ClipBehavior.HARD_EDGE,
+                    border_radius=20,
                 ),
-                elevation=3
+                elevation=3,
             ),
             col={"xs": 12, "sm": 12, "md": 6, "xl": 6},
-            padding=10
+            padding=10,
         )
         for u in university_data
     ]

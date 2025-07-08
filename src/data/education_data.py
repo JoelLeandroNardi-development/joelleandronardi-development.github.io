@@ -2,12 +2,14 @@ university_data = [
     {
         "title": "Information Systems Engineering Degree",
         "details": "🇦🇷 Universidad Tecnológica Nacional | 2014 - 2019",
-        "description": "Focused on software development, AI, and data systems."
+        "description": "Focused on software development processes, quality assurance, projects management and data systems.",
+        "city": "rosario"
     },
     {
         "title": "Research in Computer & Systems Engineering (M. Sc.)",
         "details": "🇩🇪 Technische Universität Ilmenau | 2018 - 2019 (Exchange Program)",
-        "description": "Specializing in ML, NLP, and advanced algorithms."
+        "description": "Experience where I got deeper in topics like machine learning, artificial intelligence, and data exploration.",
+        "city": "ilmenau"
     }
 ]
 

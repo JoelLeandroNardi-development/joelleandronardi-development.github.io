@@ -23,6 +23,10 @@ def main(page: ft.Page):
         "pluralsight": ft.Image(src="pluralsight.png"),
         "udemy": ft.Image(src="udemy.png"),
     }
+    city_images = {
+        "rosario": ft.Image(src="rosario.jpg"),
+        "ilmenau": ft.Image(src="ilmenau.jpg"),
+    }
 
     is_dark = True
     def toggle_theme(e=None):
@@ -42,7 +46,7 @@ def main(page: ft.Page):
         elif route == "/experience":
             experience.view(page, toggle_theme)
         elif route == "/education":
-            education.view(page, toggle_theme, flags_images, learning_images)
+            education.view(page, toggle_theme, flags_images, learning_images, city_images)
         elif route == "/interests":
             interests.view(page, toggle_theme)
         page.update()
