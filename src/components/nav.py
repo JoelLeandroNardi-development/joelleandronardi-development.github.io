@@ -3,7 +3,6 @@ import flet as ft
 def get_appbar(title: str, page: ft.Page, on_back=None, toggle_theme=None) -> ft.AppBar:
     nav_links = ["education", "projects", "experience", "interests"]
 
-    # Only add back button if on_back is provided
     leading_controls = []
     if on_back:
         leading_controls.append(
@@ -16,7 +15,7 @@ def get_appbar(title: str, page: ft.Page, on_back=None, toggle_theme=None) -> ft
             spacing=10,
             vertical_alignment=ft.CrossAxisAlignment.CENTER
         ),
-        title=ft.Row(  # Wrap the title button in a Row to make it expand
+        title=ft.Row(
             controls=[
                 ft.TextButton(
                     on_click=lambda e: page.go("/"),
@@ -37,7 +36,7 @@ def get_appbar(title: str, page: ft.Page, on_back=None, toggle_theme=None) -> ft
                         spacing=8,
                         alignment=ft.MainAxisAlignment.START,
                         vertical_alignment=ft.CrossAxisAlignment.CENTER,
-                        expand=True  # Make text+icon row expand
+                        expand=True
                     ),
                     style=ft.ButtonStyle(
                         padding=0,
@@ -45,7 +44,7 @@ def get_appbar(title: str, page: ft.Page, on_back=None, toggle_theme=None) -> ft
                     )
                 )
             ],
-            expand=True,  # Make title row fill horizontal space
+            expand=True,
             alignment=ft.MainAxisAlignment.START,
             vertical_alignment=ft.CrossAxisAlignment.CENTER
         ),

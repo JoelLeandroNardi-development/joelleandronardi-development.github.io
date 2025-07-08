@@ -11,7 +11,7 @@ def view(page: ft.Page, toggle_theme):
         ft.View(
             route="/interests",
             controls=[
-                get_appbar("Interests", on_back=lambda e: page.go("/"), toggle_theme=toggle_theme),
+                get_appbar("Interests", page, on_back=lambda e: page.go("/"), toggle_theme=toggle_theme),
                 interests
             ]
         )

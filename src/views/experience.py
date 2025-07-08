@@ -3,8 +3,8 @@ from components.nav import get_appbar
 
 def view(page: ft.Page, toggle_theme):
     experiences = [
-        {"company": "TechCorp", "role": "Software Engineer", "duration": "2021 - Present", "promotions": ["Junior Dev", "Mid-Level Dev", "Senior Dev"]},
-        {"company": "WebStart", "role": "Frontend Developer", "duration": "2019 - 2021", "promotions": []}
+        {"company": "Pending", "role": "Software Engineer", "duration": "2021 - Present", "promotions": ["Junior Dev", "Mid-Level Dev", "Senior Dev"]},
+        {"company": "Pending", "role": "Frontend Developer", "duration": "2019 - 2021", "promotions": []}
     ]
 
     cards = []
@@ -27,7 +27,7 @@ def view(page: ft.Page, toggle_theme):
         ft.View(
             route="/experience",
             controls=[
-                get_appbar("Experience", on_back=lambda e: page.go("/"), toggle_theme=toggle_theme),
+                get_appbar("Experience", page, on_back=lambda e: page.go("/"), toggle_theme=toggle_theme),
                 ft.Column(cards, scroll=ft.ScrollMode.ADAPTIVE),
             ]
         )

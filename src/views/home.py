@@ -21,7 +21,7 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
     name_section = ft.Column(
         controls=[
             ft.Text("Hey there, I'm", size=30, weight=ft.FontWeight.W_600),
-            ft.Text("Joel Leandro Nardi", size=40, weight=ft.FontWeight.BOLD, color=ft.Colors.AMBER),
+            ft.Text("Joel Leandro Nardi", size=40, weight=ft.FontWeight.BOLD, color=ft.Colors.PRIMARY),
             ft.Container(
                 content=ft.Text("Full Stack Developer", size=16, weight=ft.FontWeight.W_500),
                 bgcolor=ft.Colors.with_opacity(0.2, ft.Colors.AMBER_100),
@@ -30,7 +30,10 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
             ),
             ft.Text(
                 "I’m an experienced developer building fast, secure, and scalable full-stack web apps.\n"
-                "I enjoy solving complex problems and designing user-friendly systems.",
+                "I also have been working as Technical Lead and Agile Delivery Manager.\n"
+                "I enjoy solving complex problems and designing user-friendly systems.\n"
+                "Information Systems Engineer, graduated from UTN Facultad Regional Rosario (Argentina).\n"
+                "Former exchange student and researcher in TU Ilmenau (Germany). Currently living in Spain.",
                 size=15,
                 opacity=0.8,
             ),
@@ -85,7 +88,7 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
     def skill_card(title, items):
         return ft.Container(
             content=ft.Column([
-                ft.Text(title, size=16, weight="bold", color=ft.Colors.AMBER_200),
+                ft.Text(title, size=16, weight="bold", color=ft.Colors.PRIMARY),
                 ft.Row(
                     controls=[ft.Chip(label=ft.Text(skill)) for skill in items],
                     wrap=True,
@@ -93,7 +96,7 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
                     run_spacing=8,
                 ),
             ]),
-            border=ft.border.all(1, ft.Colors.with_opacity(0.2, ft.Colors.AMBER_100)),
+            border=ft.border.all(1, ft.Colors.with_opacity(0.2, ft.Colors.PRIMARY)),
             border_radius=12,
             padding=20,
             bgcolor=ft.Colors.with_opacity(0.05, ft.Colors.ON_SURFACE),
@@ -119,7 +122,7 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
                     controls=[
                         header,
                         ft.Divider(),
-                        ft.Text("Skills", size=28, weight="bold", color=ft.Colors.AMBER),
+                        ft.Text("Skills", size=28, weight="bold", color=ft.Colors.PRIMARY),
                         ft.Text(
                             "Here are some of my key skills and technologies I've worked with.",
                             size=16,
