@@ -79,6 +79,7 @@ def view(page: ft.Page, toggle_theme, tech_images):
     page.views.append(
         ft.View(
             route="/projects",
+            scroll=ft.ScrollMode.AUTO,
             controls=[
                 get_appbar("Projects", page, on_back=lambda e: page.go("/"), toggle_theme=toggle_theme),
                 ft.ResponsiveRow(

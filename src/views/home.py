@@ -22,12 +22,26 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
         controls=[
             ft.Text("Hey there, I'm", size=30, weight=ft.FontWeight.W_600),
             ft.Text("Joel Leandro Nardi", size=40, weight=ft.FontWeight.BOLD, color=ft.Colors.PRIMARY),
-            ft.Container(
-                content=ft.Text("Full Stack Developer", size=16, weight=ft.FontWeight.W_500),
-                bgcolor=ft.Colors.with_opacity(0.2, ft.Colors.AMBER_100),
-                padding=ft.Padding(8, 4, 8, 4),
-                border_radius=8,
-            ),
+            ft.Row([
+                ft.Container(
+                    content=ft.Text("Full Stack Developer", size=16, weight=ft.FontWeight.W_500),
+                    bgcolor=ft.Colors.with_opacity(0.4, ft.Colors.SECONDARY_CONTAINER),
+                    padding=ft.Padding(8, 4, 8, 4),
+                    border_radius=8,
+                ),
+                ft.Container(
+                    content=ft.Text("Tech Leader", size=16, weight=ft.FontWeight.W_500),
+                    bgcolor=ft.Colors.with_opacity(0.4, ft.Colors.SECONDARY_CONTAINER),
+                    padding=ft.Padding(8, 4, 8, 4),
+                    border_radius=8,
+                ),
+                ft.Container(
+                    content=ft.Text("Agile Practitioner", size=16, weight=ft.FontWeight.W_500),
+                    bgcolor=ft.Colors.with_opacity(0.4, ft.Colors.SECONDARY_CONTAINER),
+                    padding=ft.Padding(8, 4, 8, 4),
+                    border_radius=8,
+                ),
+            ]),
             ft.Text(
                 "I’m an experienced developer building fast, secure, and scalable full-stack web apps.\n"
                 "I also have been working as Technical Lead and Agile Delivery Manager.\n"

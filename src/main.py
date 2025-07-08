@@ -13,6 +13,12 @@ def main(page: ft.Page):
         "nodejs": ft.Image(src="nodejs.png"),
         "flet": ft.Image(src="flet.png"),
     }
+    flags_images = {
+        "uk": ft.Image(src="uk_flag.png"),
+        "spain": ft.Image(src="sp_flag.png"),
+        "italy": ft.Image(src="it_flag.png"),
+        "germany": ft.Image(src="de_flag.png"),
+    }
 
     is_dark = True
     def toggle_theme(e=None):
@@ -32,7 +38,7 @@ def main(page: ft.Page):
         elif route == "/experience":
             experience.view(page, toggle_theme)
         elif route == "/education":
-            education.view(page, toggle_theme)
+            education.view(page, toggle_theme, flags_images)
         elif route == "/interests":
             interests.view(page, toggle_theme)
         page.update()

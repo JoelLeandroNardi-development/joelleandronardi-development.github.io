@@ -10,6 +10,7 @@ def view(page: ft.Page, toggle_theme):
     page.views.append(
         ft.View(
             route="/interests",
+            scroll=ft.ScrollMode.AUTO,
             controls=[
                 get_appbar("Interests", page, on_back=lambda e: page.go("/"), toggle_theme=toggle_theme),
                 interests

@@ -26,6 +26,7 @@ def view(page: ft.Page, toggle_theme):
     page.views.append(
         ft.View(
             route="/experience",
+            scroll=ft.ScrollMode.AUTO,
             controls=[
                 get_appbar("Experience", page, on_back=lambda e: page.go("/"), toggle_theme=toggle_theme),
                 ft.Column(cards, scroll=ft.ScrollMode.ADAPTIVE),
