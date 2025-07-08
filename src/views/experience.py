@@ -1,20 +1,9 @@
 import flet as ft
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
 from components.nav import get_appbar
 from data.experience_data import experiences
 
-def format_duration(start_str, end_str):
-    start = datetime.strptime(start_str, "%b %Y")
-    end = datetime.now() if end_str.lower() in ["present", "now"] else datetime.strptime(end_str, "%b %Y")
-    delta = relativedelta(end, start)
-    years = f"{delta.years} yr{'s' if delta.years != 1 else ''}" if delta.years else ""
-    months = f"{delta.months} mo{'s' if delta.months != 1 else ''}" if delta.months else ""
-    return " · ".join(filter(None, [years, months]))
-
 def create_timeline_role(role, is_last=False):
-    duration = format_duration(role["start_date"], role["end_date"])
-
     return ft.Row(
         [
             ft.Column(
@@ -42,7 +31,7 @@ def create_timeline_role(role, is_last=False):
                 content=ft.Column(
                     [
                         ft.Text(role["title"], weight="bold", size=16),
-                        ft.Text(f'{role["start_date"]} – {role["end_date"]} · {duration}', size=12, italic=True),
+                        ft.Text(f'{role["start_date"]} – {role["end_date"]}', size=12, italic=True),
                         ft.Text(role["description"], size=13),
                         ft.Text("Skills: " + ", ".join(role["skills"]), size=11, italic=True),
                     ],
