@@ -20,7 +20,7 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
 
     name_section = ft.Column(
         controls=[
-            ft.Text("Hey there, I'm", size=30, weight=ft.FontWeight.W_600),
+            ft.Text("Hey there, I am", size=30, weight=ft.FontWeight.W_600),
             ft.Text("Joel Leandro Nardi", size=40, weight=ft.FontWeight.BOLD, color=ft.Colors.PRIMARY),
             ft.Row([
                 ft.Container(
@@ -43,11 +43,12 @@ def view(page: ft.Page, toggle_theme=None, avatar=None):
                 ),
             ]),
             ft.Text(
-                "I’m an experienced developer building fast, secure, and scalable full-stack web apps.\n"
+                "I am an experienced developer building fast, secure, and scalable full-stack web apps.\n"
                 "I also have been working as Technical Lead and Agile Delivery Manager.\n"
                 "I enjoy solving complex problems and designing user-friendly systems.\n"
                 "Information Systems Engineer, graduated from UTN Facultad Regional Rosario (Argentina).\n"
-                "Former exchange student and researcher in TU Ilmenau (Germany). Currently living in Spain.",
+                "Former exchange student and researcher in TU Ilmenau (Germany).\n"
+                "Currently living in Spain.",
                 size=15,
                 opacity=0.8,
             ),
