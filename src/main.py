@@ -19,6 +19,10 @@ def main(page: ft.Page):
         "italy": ft.Image(src="it_flag.png"),
         "germany": ft.Image(src="de_flag.png"),
     }
+    learning_images = {
+        "pluralsight": ft.Image(src="pluralsight.png"),
+        "udemy": ft.Image(src="udemy.png"),
+    }
 
     is_dark = True
     def toggle_theme(e=None):
@@ -38,7 +42,7 @@ def main(page: ft.Page):
         elif route == "/experience":
             experience.view(page, toggle_theme)
         elif route == "/education":
-            education.view(page, toggle_theme, flags_images)
+            education.view(page, toggle_theme, flags_images, learning_images)
         elif route == "/interests":
             interests.view(page, toggle_theme)
         page.update()
