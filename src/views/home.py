@@ -123,7 +123,6 @@ def build_skills_grid() -> ft.ResponsiveRow:
 
 def view(page: ft.Page, toggle_theme=None, avatar=None):
     page.views.clear()
-
     page.views.append(
         ft.View(
             route="/",

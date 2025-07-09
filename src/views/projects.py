@@ -5,7 +5,6 @@ from data.projects_data import projects
 def build_project_card(project: dict, page: ft.Page, tech_images: dict) -> ft.Container:
     image_url = tech_images.get(project["tech"], None)
     image_src = image_url.src if image_url else "https://via.placeholder.com/300x150"
-
     return ft.Container(
         content=ft.Card(
             content=ft.Container(

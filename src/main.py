@@ -45,6 +45,16 @@ def get_shared_resources():
             "tecso": "tecso.png",
             "utn": "utn.png",
         }, "experience"),
+        "interest_images": load_images({
+            "travelling": "travel.jpg",
+            "vinyl": "vinyl.jpg",
+            "music": "music.jpg",
+            "sports": "sports.jpg",
+            "photography": "photography.jpg",
+            "art": "art.jpg",
+            "cooking": "cooking.jpg",
+            "datasci": "datasci.jpg",
+        }, "interests")
     }
 
 def main(page: ft.Page):
@@ -75,7 +85,7 @@ def main(page: ft.Page):
                         assets["city_images"]
                     )
                 case "/interests":
-                    route_view(page, toggle_theme)
+                    route_view(page, toggle_theme, assets["interest_images"])
         page.update()
     page.on_route_change = route_change
     page.go(page.route or "/")
