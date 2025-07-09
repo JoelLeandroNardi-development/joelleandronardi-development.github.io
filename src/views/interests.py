@@ -1,4 +1,3 @@
-# views/interests.py
 import flet as ft
 from components.nav import get_appbar
 
