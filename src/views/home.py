@@ -11,14 +11,19 @@ def on_linkedin_click(e, page): page.launch_url("https://linkedin.com/in/joel-le
 def on_github_click(e, page): page.launch_url("https://github.com/JoelLeandroNardi-development")
 
 def build_title_row(texts: list[str]) -> ft.Row:
-    return ft.Row([
-        ft.Container(
-            content=ft.Text(label, size=16, weight=ft.FontWeight.W_500),
-            bgcolor=ft.Colors.with_opacity(0.4, ft.Colors.SECONDARY_CONTAINER),
-            padding=ft.Padding(8, 4, 8, 4),
-            border_radius=8,
-        ) for label in texts
-    ])
+    return ft.Row(
+        controls=[
+            ft.Container(
+                content=ft.Text(label, size=16, weight=ft.FontWeight.W_500),
+                bgcolor=ft.Colors.with_opacity(0.4, ft.Colors.SECONDARY_CONTAINER),
+                padding=ft.Padding(8, 4, 8, 4),
+                border_radius=8,
+            ) for label in texts
+        ],
+        wrap=True,
+        spacing=8,
+        run_spacing=8
+    )
 
 def build_contact_buttons(page: ft.Page) -> ft.Row:
     return ft.Row([
