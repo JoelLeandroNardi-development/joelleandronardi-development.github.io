@@ -14,18 +14,27 @@ def main(page: ft.Page):
         "flet": ft.Image(src="flet.png"),
     }
     flags_images = {
-        "uk": ft.Image(src="uk_flag.png"),
-        "spain": ft.Image(src="sp_flag.png"),
-        "italy": ft.Image(src="it_flag.png"),
-        "germany": ft.Image(src="de_flag.png"),
+        "uk": ft.Image(src="flags/uk_flag.png"),
+        "spain": ft.Image(src="flags/sp_flag.png"),
+        "italy": ft.Image(src="flags/it_flag.png"),
+        "germany": ft.Image(src="flags/de_flag.png"),
     }
     learning_images = {
-        "pluralsight": ft.Image(src="pluralsight.png"),
-        "udemy": ft.Image(src="udemy.png"),
+        "pluralsight": ft.Image(src="learning/pluralsight.png"),
+        "udemy": ft.Image(src="learning/udemy.png"),
     }
     city_images = {
-        "rosario": ft.Image(src="rosario.jpg"),
-        "ilmenau": ft.Image(src="ilmenau.jpg"),
+        "rosario": ft.Image(src="cities/rosario.jpg"),
+        "ilmenau": ft.Image(src="cities/ilmenau.jpg"),
+    }
+    companies_images = {
+        "softtek": ft.Image(src="experience/softtek.png"),
+        "acsys": ft.Image(src="experience/acsys.png"),
+        "sweatworks": ft.Image(src="experience/sweatworks.png"),
+        "tiarg": ft.Image(src="experience/tiarg.png"),
+        "globant": ft.Image(src="experience/globant.png"),
+        "tecso": ft.Image(src="experience/tecso.png"),
+        "utn": ft.Image(src="experience/utn.png"),
     }
 
     is_dark = True
@@ -44,7 +53,7 @@ def main(page: ft.Page):
         elif route == "/projects":
             projects.view(page, toggle_theme, tech_images)
         elif route == "/experience":
-            experience.view(page, toggle_theme)
+            experience.view(page, toggle_theme, companies_images)
         elif route == "/education":
             education.view(page, toggle_theme, flags_images, learning_images, city_images)
         elif route == "/interests":
