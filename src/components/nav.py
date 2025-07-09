@@ -20,7 +20,7 @@ def get_appbar(title: str, page: ft.Page, on_back=None, toggle_theme=None) -> ft
     ]
     popup_menu = ft.PopupMenuButton(
         items=[
-            ft.PopupMenuItem(text=link.title(), data=link, on_click=navigate)
+            ft.PopupMenuItem(text=link.upper(), data=link, on_click=navigate)
             for link in nav_links
         ]
     )
